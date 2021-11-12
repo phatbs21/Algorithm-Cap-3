@@ -1,0 +1,1 @@
+There are N strings, the i-th rope (i = 1...N) of length Li is a positive integer. To create K lengths of rope, each of which is exactly the same length as M, one selects and cuts a number of ropes out of the given N strings at integer positions. Knowing that each stroke can only cut a rope into two pieces

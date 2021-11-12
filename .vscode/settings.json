@@ -3,6 +3,7 @@
     "**/*.": true,
     "**/*.exe": true
   },
+  
   "C_Cpp.default.cppStandard": "c++20",
   "code-runner.ignoreSelection": true,
   "C_Cpp.default.cStandard": "c17",
@@ -98,5 +99,5 @@
     "stack": "cpp"
   },
   "code-runner.runInTerminal": true,
-
+  
 }

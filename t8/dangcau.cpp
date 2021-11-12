@@ -10,11 +10,6 @@ int main()
     int x, dem = 0, kq = 0, n, tong = 0, bairerachdevl[10];
     string s = "", so[10];
     cin >> n;
-    if (n < 5)
-    {
-        cout << 0;
-        return 0;
-    }
     for (int i = 1; i <= n; i++)
     {
         s = to_string(i);
