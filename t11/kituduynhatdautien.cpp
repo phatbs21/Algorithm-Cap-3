@@ -10,9 +10,29 @@ using namespace std;
 #define fi first
 #define se second
 #define pb push_back
-typedef pair<ll, ll> pii;
-bool cmp(pii a, ppi b)
+typedef pair<int, int> pii;
+void process()
 {
+    string s;
+    cin >> s;
+    map<char, int> q;
+    for (int i = 0; i < s.length(); i++)
+    {
+        q[s[i]]++;
+    }
+    int flag = true;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (q[s[i]] == 1)
+        {
+            cout << i + 1;
+            flag = false;
+            break;
+        }
+    }
+    if (flag == true)
+        cout << "-1";
+    cout << endl;
 }
 int main()
 {
@@ -20,18 +40,16 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 #if ONLINE_JUDGE
-    freopen("find.inp", "r", stdin);
-    freopen("find.out", "w", stdout);
+    freopen("bai3.inp", "r", stdin);
+    freopen("bai3.out", "w", stdout);
 #else
     freopen("input.inp", "r", stdin);
     //freopen("output.out", "w", stdout);
 #endif
-    int n;
-    cin >> n;
-    vector<pii> a;
-    for (int i = 1; i <= n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> a[i].fi >> a[i].se;
+        process();
     }
-    sort(a.begin() + 1, a.end());
 }

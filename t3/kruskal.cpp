@@ -40,10 +40,10 @@ int main()
     }
     sort(a.begin(), a.end(), cmp);
     int mst_w = 0;
-    for(int i=0;i<=n;i++)
+    for (int i = 0; i <= n; i++)
     {
-        cha[i]=i;
-        hang[i]=0;
+        cha[i] = i;
+        hang[i] = 0;
     }
     for (int i = 0; i < m; i++)
     {

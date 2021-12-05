@@ -10,9 +10,28 @@ using namespace std;
 #define fi first
 #define se second
 #define pb push_back
+#define flase false
 typedef pair<ll, ll> pii;
-bool cmp(pii a, ppi b)
+bool check(ll n)
 {
+    string s = to_string(n);
+    ll l = 0;
+    ll h = s.length() - 1;
+    while (h > l)
+    {
+        if (s[l++] != s[h--])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+ll rever(ll n)
+{
+    string s = to_string(n);
+    reverse(s.begin(), s.end());
+    n = stoi(s);
+    return n;
 }
 int main()
 {
@@ -20,18 +39,19 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 #if ONLINE_JUDGE
-    freopen("find.inp", "r", stdin);
-    freopen("find.out", "w", stdout);
 #else
     freopen("input.inp", "r", stdin);
     //freopen("output.out", "w", stdout);
 #endif
-    int n;
+    ll n;
     cin >> n;
-    vector<pii> a;
-    for (int i = 1; i <= n; i++)
+    ll dem = 1;
+    n = n + rever(n);
+    while (rever(n) != n)
     {
-        cin >> a[i].fi >> a[i].se;
+        dem++;
+        n = n + rever(n);
     }
-    sort(a.begin() + 1, a.end());
+    cout << n << "\n";
+    cout << dem;
 }

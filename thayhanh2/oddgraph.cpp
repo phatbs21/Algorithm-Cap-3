@@ -10,28 +10,21 @@ using namespace std;
 #define fi first
 #define se second
 #define pb push_back
-typedef pair<ll, ll> pii;
-bool cmp(pii a, ppi b)
-{
-}
+typedef pair<int, int> pii;
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 #if ONLINE_JUDGE
-    freopen("find.inp", "r", stdin);
-    freopen("find.out", "w", stdout);
+    freopen("oddgraph.inp", "r", stdin);
+    freopen("oddgraph.out", "w", stdout);
 #else
-    freopen("input.inp", "r", stdin);
+    //freopen("input.inp", "r", stdin);
     //freopen("output.out", "w", stdout);
 #endif
-    int n;
-    cin >> n;
-    vector<pii> a;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> a[i].fi >> a[i].se;
-    }
-    sort(a.begin() + 1, a.end());
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++)
+        cout << 1;
 }

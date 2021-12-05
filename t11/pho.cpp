@@ -10,9 +10,46 @@ using namespace std;
 #define fi first
 #define se second
 #define pb push_back
+#define N 300005
 typedef pair<ll, ll> pii;
-bool cmp(pii a, ppi b)
+vector<vector<ll>> a(N);
+ll n, m;
+vector<ll> d;
+ll high[N], par[N];
+ll kq = 0;
+vector<ll> queries(N, 0);
+map<ll, ll> check;
+ll goc;
+void dfs(ll u)
 {
+    for (ll i = 0; i < (ll)a[u].size(); i++)
+    {
+        ll v = a[u][i];
+        if (v != par[u])
+        {
+            par[v] = u;
+            high[u] = high[v] + 1;
+            dfs(v);
+        }
+    }
+}
+void lca(ll v)
+{
+    if (goc == v || check[v] > 0)
+        return;
+    if (check[v] == 0)
+        kq++;
+    check[v]++;
+    // cout << v << " ";
+
+    while (goc != v && check[par[v]] == 0)
+    {
+        v = par[v];
+        // cout << v << " ";
+        if (check[v] == 0)
+            kq++;
+        check[v]++;
+    }
 }
 int main()
 {
@@ -20,18 +57,31 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 #if ONLINE_JUDGE
-    freopen("find.inp", "r", stdin);
-    freopen("find.out", "w", stdout);
+    freopen("pho.inp", "r", stdin);
+    freopen("pho.out", "w", stdout);
 #else
     freopen("input.inp", "r", stdin);
     //freopen("output.out", "w", stdout);
 #endif
-    int n;
-    cin >> n;
-    vector<pii> a;
-    for (int i = 1; i <= n; i++)
+    cin >> n >> m;
+    for (ll i = 1; i <= m; i++)
     {
-        cin >> a[i].fi >> a[i].se;
+        cin >> queries[i];
     }
-    sort(a.begin() + 1, a.end());
+    for (ll i = 1; i <= n - 1; i++)
+    {
+        ll x, y;
+        cin >> x >> y;
+        a[x].push_back(y);
+        a[y].push_back(x);
+    }
+    goc = queries[1];
+    par[goc] = goc;
+    dfs(queries[1]);
+    check[queries[1]]++;
+    for (ll i = 2; i <= m; i++)
+    {
+        lca(queries[i]);
+    }
+    cout << kq << "\n";
 }
